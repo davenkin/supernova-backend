@@ -24,7 +24,7 @@ import static lombok.AccessLevel.PROTECTED;
         @JsonSubTypes.Type(value = OrgActor.class, name = "ORG_ACTOR"),
         @JsonSubTypes.Type(value = PlatformActor.class, name = "PLATFORM_ACTOR"),
 })
-
+// todo: add DeviceActor
 @Getter
 @FieldNameConstants
 @NoArgsConstructor(access = PROTECTED)
