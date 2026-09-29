@@ -1,0 +1,20 @@
+common:
+  limitRate: false
+  orgJwtIssuer: http://localhost:7125/realms/org
+  platformJwtIssuer: http://localhost:7125/realms/platform
+
+de.flapdoodle.mongodb.embedded.version: 7.0.12 # Enable flapdoodle Embedded MongoDB by specifying a version, otherwise flapdoodle will fail to start
+
+mongock:
+  enabled: false # Disable Mongock
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.kafka.autoconfigure.KafkaAutoConfiguration # Disable Kafka
+      - org.springframework.boot.security.oauth2.client.autoconfigure.OAuth2ClientAutoConfiguration # Disable OAuth2 Client for service account
+  data:
+    redis:
+      port: 6126 # embedded Redis(refer to EmbeddedRedisServer), can be accessed via 127.0.0.1:6126
+  mongodb:
+    uri: mongodb://localhost:27125/andy-springboot4-template-whatever # No effect for Embedded MongoDB

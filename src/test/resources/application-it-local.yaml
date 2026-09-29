@@ -1,0 +1,23 @@
+common:
+  limitRate: false
+  orgJwtIssuer: http://localhost:7125/realms/org
+  platformJwtIssuer: http://localhost:7125/realms/platform
+
+mongock:
+  enabled: false # Disable Mongock
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.kafka.autoconfigure.KafkaAutoConfiguration # Disable Kafka
+      - org.springframework.boot.security.oauth2.client.autoconfigure.OAuth2ClientAutoConfiguration # Disable OAuth2 Client for service account
+      - de.flapdoodle.embed.mongo.spring.autoconfigure.EmbeddedMongoAutoConfiguration # Disable flapdoodle explicitly otherwise the embedded MongoDB will replace your local real MongoDB servers
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6125
+      password: aredissecret
+      timeout: 10000
+  mongodb:
+    uri: mongodb://localhost:27125/andy-springboot4-template-local

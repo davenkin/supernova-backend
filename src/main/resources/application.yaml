@@ -1,0 +1,64 @@
+common:
+  limitRate: true
+  orgJwtIssuer: http://localhost:7125/realms/org
+  platformJwtIssuer: http://localhost:7125/realms/platform
+
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  application:
+    name: andy-springboot4-template
+  data:
+    mongodb:
+      auto-index-creation: false # disable auto index creation explicitly as we choose to manage indexes using Mongock
+  profiles:
+    active: local # use "local" profile by default for local run
+  cache:
+    type: redis
+  threads:
+    virtual:
+      enabled: true
+  kafka:
+    template:
+      observation-enabled: true
+    listener:
+      observation-enabled: true
+
+mongock:
+  enabled: true
+  migration-scan-package: com.company.andy.common.migration
+  transactional: true
+  lock-repository-name: mongock-lock
+  migration-repository-name: mongock-migration
+
+springdoc:
+  default-produces-media-type: application/json
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+    tags-sorter: alpha
+    operations-sorter: method
+
+management:
+  endpoints:
+    access:
+      default: none # diable all actuator endpoints by default
+    web:
+      exposure:
+        include: "*" # expose all actuator endpoints
+  defaults:
+    metrics:
+      export:
+        enabled: true # enable actuator metrics
+  otlp:
+    metrics:
+      export:
+        enabled: false # do not export metrics to otlp servers
+  tracing:
+    export:
+      enabled: true # enable tracing
+    sampling:
+      probability: 0 # do not export tracing to external servers as we only need traceId in logs

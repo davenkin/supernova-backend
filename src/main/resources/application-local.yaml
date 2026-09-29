@@ -1,0 +1,43 @@
+common:
+  limitRate: true
+  orgJwtIssuer: http://localhost:7125/realms/org
+  platformJwtIssuer: http://localhost:7125/realms/platform
+
+server:
+  port: 5125
+spring:
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6125
+      password: aredissecret
+      timeout: 10000
+  mongodb:
+    uri: mongodb://localhost:27125/andy-springboot4-template-local
+  kafka:
+    bootstrap-servers: localhost:9125
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak-service-account:
+            provider: keycloak
+            client-id: test-service-account-client
+            client-secret: pEuTKGJU2WicZFaEMsAKuwPBKhSChRKd
+            authorization-grant-type: client_credentials
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:7125/realms/test-realm
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+management:
+  endpoints:
+    access:
+      default: unrestricted
