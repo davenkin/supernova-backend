@@ -48,7 +48,7 @@ Sometimes you may want to export your local Keycloak data for future import, use
 
 ```bash
 docker run --rm \
--v andy-springboot4-template_andy-springboot4-template-keycloak-volume:/opt/keycloak/data \
+-v supernova-backend_supernova-backend-keycloak-volume:/opt/keycloak/data \
 -v $(pwd)/keycloak-data:/tmp/export \
 quay.io/keycloak/keycloak:26.2.5 \
 export \
@@ -61,7 +61,7 @@ export \
 
 ```bash
 docker run --rm \
--v andy-springboot4-template_andy-springboot4-template-keycloak-volume:/opt/keycloak/data \
+-v supernova-backend_supernova-backend-keycloak-volume:/opt/keycloak/data \
 -v $(pwd)/keycloak-data:/tmp/export \
 quay.io/keycloak/keycloak:26.2.5 \
 export \

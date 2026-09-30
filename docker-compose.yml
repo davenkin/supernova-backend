@@ -4,9 +4,9 @@ services:
     ports:
       - "27125:27017"
     environment:
-      - "MONGO_INITDB_DATABASE=andy-springboot4-template-local"
+      - "MONGO_INITDB_DATABASE=supernova-backend-local"
     volumes:
-      - andy-springboot4-template-mongo-volume:/data/db
+      - supernova-backend-mongo-volume:/data/db
     command: mongod --replSet rs0
     healthcheck:
       test: |
@@ -16,7 +16,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - andy-springboot4-template-network
+      - supernova-backend-network
     restart: always
 
   kafka:
@@ -38,7 +38,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_NUM_PARTITIONS: 3
     networks:
-      - andy-springboot4-template-network
+      - supernova-backend-network
     restart: always
 
   kafka_ui:
@@ -49,7 +49,7 @@ services:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9093
     networks:
-      - andy-springboot4-template-network
+      - supernova-backend-network
     restart: always
 
   keycloak:
@@ -60,11 +60,11 @@ services:
       - KC_BOOTSTRAP_ADMIN_USERNAME=admin
       - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
     volumes:
-      - andy-springboot4-template-keycloak-volume:/opt/keycloak/data
+      - supernova-backend-keycloak-volume:/opt/keycloak/data
       - ./keycloak-data:/opt/keycloak/data/import
     command: start-dev --import-realm
     networks:
-      - andy-springboot4-template-network
+      - supernova-backend-network
     restart: always
 
   mry-redis:
@@ -72,7 +72,7 @@ services:
     ports:
       - "6125:6379"
     volumes:
-      - andy-springboot4-template-redis-volume:/data
+      - supernova-backend-redis-volume:/data
     command: redis-server --requirepass aredissecret
     healthcheck:
       test: [ "CMD", "redis-cli", "-a", "aredissecret", "ping" ]
@@ -81,17 +81,17 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - andy-springboot4-template-network
+      - supernova-backend-network
     restart: always
 
 networks:
-  andy-springboot4-template-network:
+  supernova-backend-network:
     driver: bridge
 
 volumes:
-  andy-springboot4-template-mongo-volume:
+  supernova-backend-mongo-volume:
     driver: local
-  andy-springboot4-template-redis-volume:
+  supernova-backend-redis-volume:
     driver: local
-  andy-springboot4-template-keycloak-volume:
+  supernova-backend-keycloak-volume:
     driver: local

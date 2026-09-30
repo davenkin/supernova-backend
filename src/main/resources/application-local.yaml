@@ -14,7 +14,7 @@ spring:
       password: aredissecret
       timeout: 10000
   mongodb:
-    uri: mongodb://localhost:27125/andy-springboot4-template-local
+    uri: mongodb://localhost:27125/supernova-backend-local
   kafka:
     bootstrap-servers: localhost:9125
   security:

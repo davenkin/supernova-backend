@@ -17,4 +17,4 @@ spring:
     redis:
       port: 6126 # embedded Redis(refer to EmbeddedRedisServer), can be accessed via 127.0.0.1:6126
   mongodb:
-    uri: mongodb://localhost:27125/andy-springboot4-template-whatever # No effect for Embedded MongoDB
+    uri: mongodb://localhost:27125/supernova-backend-whatever # No effect for Embedded MongoDB

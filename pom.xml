@@ -9,10 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.company.andy</groupId>
-    <artifactId>andy-springboot4-template</artifactId>
+    <artifactId>supernova-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>andy-springboot4-template</name>
-    <description>A template Spring Boot 4 project.</description>
+    <description>Backend API for Supernova.</description>
 
     <properties>
         <java.version>25</java.version>

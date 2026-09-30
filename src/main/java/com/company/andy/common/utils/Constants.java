@@ -1,7 +1,7 @@
 package com.company.andy.common.utils;
 
 public class Constants {
-    public static final String THIS_SERVICE_NAME = "andy-springboot4-template";
+    public static final String THIS_SERVICE_NAME = "supernova-backend";
     public static final String MONGO_ID = "_id";
     public static final String ID = "id";
     public static final String TRACE_PARENT = "traceparent";

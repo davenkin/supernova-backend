@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: andy-springboot4-template
+    name: supernova-backend
   data:
     mongodb:
       auto-index-creation: false # disable auto index creation explicitly as we choose to manage indexes using Mongock
